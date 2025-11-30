@@ -82,3 +82,7 @@ Be sure to set:
 System Settings → General → Login Items
 
 Then under “Open at Login”, click + and choose your .app.
+
+# License
+
+Keydometer is released under the [MIT License](LICENSE). Use it freely, modify it for your needs, and do so at your own discretion—the software is provided “as is” without warranty.
