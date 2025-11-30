@@ -29,6 +29,11 @@ Export CSV data or configure auto-start directly from the menu:
 ![CSV export sheet](assets/csv-export.png)
 ![Auto-start settings](assets/auto-start-config.png)
 
+Peek under the hood at the SQLite schema that powers the metrics:
+
+![Database tables overview](assets/db-structure-1.png)
+![Entity relationships](assets/db-structure-2.png)
+
 ## Compile the CLI binary
 
 ```
