@@ -1,3 +1,16 @@
+# Keydometer
+
+Keydometer is a macOS menu-bar utility that monitors keyboard usage in real time, aggregates key counts per minute, and surfaces rich metrics like daily totals, streaks, most-used keys, and focus stats—without exposing the actual words you type.
+
+Keydometer is written in Swift and uses SQLite for persistence.
+
+### Built to respect privacy
+
+- The accessibility event tap only records key codes so we can count presses; no clipboard data, text buffers, or window contents are captured.
+- Events are bucketed into 60-second aggregates before being written to `~/Library/Application Support/Keydometer/keydometer.sqlite`, so there is never a row-by-row log of everything typed.
+- Only totals (keys per minute, key-name counts, intervals between presses, and backspace counts) are stored, which lets the stats window work while preventing reconstruction of sentences or passwords.
+- All data stays local; the app has zero networking code and nothing is uploaded or synced anywhere.
+
 # Compile vs. Build
 
 There are two ways to use Keydometer:
