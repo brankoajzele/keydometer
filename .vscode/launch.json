@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "swift",
+      "name": "Debug Keydometer",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Keydometer",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build Keydometer (.app)"
+    }
+  ]
+}

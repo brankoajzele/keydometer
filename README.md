@@ -1,4 +1,11 @@
-# Compile
+# Compile vs. Build
+
+There are two ways to use Keydometer:
+
+1. Build the command-line binary into `build/Keydometer` and launch it from Terminal. This is best while developing or debugging.
+2. Build a `.app` bundle via the helper script so the app runs in the background and shows only the menu-bar item.
+
+## Compile the CLI binary
 
 ```
 mkdir -p build
@@ -6,24 +13,21 @@ swiftc src/*.swift -o build/Keydometer \
   -framework Cocoa \
   -framework ApplicationServices
 
-```
-
-# Run
-
-```
 ./build/Keydometer
 ```
 
-# Build a background `.app`
+Running the binary directly launches Keydometer but keeps an attached Terminal window open.
 
-Running the binary directly opens a Terminal window. To create a double-clickable app bundle that runs in the background (no Terminal, only the menu-bar icon), use the helper script:
+## Build the background `.app`
+
+Use the helper script to compile and wrap the binary inside a macOS app bundle:
 
 ```
 ./build_app.sh
 open build/Keydometer.app
 ```
 
-The script compiles the binary into `build/Keydometer`, copies it plus `Info.plist` (which sets `LSUIElement=1` so the app has no Dock icon) into `build/Keydometer.app/Contents`, and leaves you with a bundle you can double-click from Finder like any other macOS menu-bar utility.
+The script first compiles the binary into `build/Keydometer`, then copies it plus `Info.plist` (which sets `LSUIElement=1` so the app has no Dock icon) into `build/Keydometer.app/Contents`. Double-clicking `Keydometer.app` launches the same binary without any Terminal windows—perfect for daily use.
 
 Be sure to set:
 
@@ -31,46 +35,8 @@ Be sure to set:
 
 2) Allow assistive applicaitons to control the computer > Keydometer.app
 
-# Add an app to auto-run on system login 
+# Add the app to auto-run on system login 
 
 System Settings → General → Login Items
 
 Then under “Open at Login”, click + and choose your .app.
-
-# .vscode/tasks.json
-
-```json
-{
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Build Keydometer (.app)",
-      "type": "shell",
-      "command": "${workspaceFolder}/build_app.sh",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "group": "build",
-      "problemMatcher": []
-    }
-  ]
-}
-```
-
-# .vscode/launch.json
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "swift",
-      "name": "Debug Keydometer",
-      "request": "launch",
-      "program": "${workspaceFolder}/build/Keydometer",
-      "cwd": "${workspaceFolder}",
-      "preLaunchTask": "Build Keydometer (.app)"
-    }
-  ]
-}
-```
