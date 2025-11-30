@@ -5,6 +5,30 @@ There are two ways to use Keydometer:
 1. Build the command-line binary into `build/Keydometer` and launch it from Terminal. This is best while developing or debugging.
 2. Build a `.app` bundle via the helper script so the app runs in the background and shows only the menu-bar item.
 
+## See Keydometer in action
+
+Keydometer lives in the menu bar and keeps everything you need a click away:
+
+![Menu bar tooltip showing live keystroke count](assets/app-icon-bar-tooltip.png)
+
+From the menu, open the search panel to inspect historical activity or jump to a specific window:
+
+![Search panel](assets/app-search.png)
+
+Use the stats view to review keystrokes, clicks, and key combos over time:
+
+![Stats view](assets/app-stats.png)
+
+When first launching, macOS prompts for the required accessibility and input permissions:
+
+![Accessibility permission](assets/app-input-permission-1.png)
+![Input monitoring permission](assets/app-input-permission-2.png)
+
+Export CSV data or configure auto-start directly from the menu:
+
+![CSV export sheet](assets/csv-export.png)
+![Auto-start settings](assets/auto-start-config.png)
+
 ## Compile the CLI binary
 
 ```
